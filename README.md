@@ -20,7 +20,7 @@ To-Do List for organizing and tracking daily activities
 Setup Instructions
 ------------------------------------------------------
 1. Clone the repository:
-git clone https://github.com/yourusername/elevare.git
+git clone https://github.com/adindakhanza5n/elevare.git
 cd elevare
 2. Open the project in VS Code or another code editor.
 3. To run the frontend locally:
@@ -41,3 +41,4 @@ License
 ------------------------------------------------------
 
 This project is licensed under the MIT License.
+
