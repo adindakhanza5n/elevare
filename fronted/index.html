@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevare</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  #toggle-audio {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(29, 79, 97, 0.8);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  #toggle-audio:hover {
+    background: rgba(0,174,239,1);
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+    <source src="assets/3571264-hd_1920_1080_30fps.mp4" type="video/mp4">
+</video>
+
+<audio id="bg-audio" autoplay loop>
+    <source src="assets/wave-10034.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<button id="toggle-audio"><i class="fas fa-volume-up"></i></button>
+
+<div class="content">
+    <h1>Elevare</h1>
+    <p>Steady as The Tide, Strong as the Wave</p>
+    <a href="todo.html" class="btn">To-Do List</a>
+    <a href="finance.html" class="btn">Financial Tracking</a>
+    <a href="mental.html" class="btn">Mental Health</a>
+</div>
+
+<script>
+  const audio = document.getElementById("bg-audio");
+  const btn = document.getElementById("toggle-audio");
+  const icon = btn.querySelector("i");
+
+  btn.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      icon.classList.remove("fa-volume-mute");
+      icon.classList.add("fa-volume-up");
+    } else {
+      audio.pause();
+      icon.classList.remove("fa-volume-up");
+      icon.classList.add("fa-volume-mute");
+    }
+  });
+</script>
+
+</body>
+</html>

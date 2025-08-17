@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevare - To-Do List</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+  }
+  h1 {
+    margin-bottom: 20px;
+  }
+  .todo-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+  .add-btn {
+    background: #00bcd4;
+    color: white;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  li {
+    background: rgba(255,255,255,0.2);
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .edit-btn { background: #ff9800; color: white; margin-right: 8px; }
+  .delete-btn { background: #f44336; color: white; }
+
+  .top-bar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  .top-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(29, 79, 97, 0.8);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .top-btn:hover {
+    background: rgba(0,174,239,1);
+    transform: scale(1.1);
+  }
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="assets/3571264-hd_1920_1080_30fps.mp4" type="video/mp4">
+</video>
+
+<audio autoplay loop id="bg-audio">
+  <source src="assets/ocean.mp3" type="audio/mpeg">
+</audio>
+
+<div class="top-bar">
+  <a href="index.html" class="top-btn"><i class="fas fa-home"></i></a>
+  <button id="audioControl" class="top-btn"><i class="fas fa-volume-up"></i></button>
+</div>
+
+<h1>To-Do List</h1>
+
+<div class="todo-container">
+  <div class="input-box">
+    <div class="input-group">
+      <input type="text" id="taskTitle" placeholder="Judul tugas...">
+      <input type="text" id="taskDesc" placeholder="Deskripsi (opsional)...">
+      <input type="date" id="taskDeadline">
+      <button class="add-btn" onclick="addTask()">Tambah</button>
+    </div>
+  </div>
+
+  <div class="task-box">
+    <ul id="taskList"></ul>
+  </div>
+
+  <ul id="taskList"></ul>
+</div>
+
+<script src="todo.js"></script>
+<script>
+  const audio = document.getElementById("bg-audio");
+  const audioControl = document.getElementById("audioControl");
+  const audioIcon = audioControl.querySelector("i");
+
+  audioControl.addEventListener("click", () => {
+    if (audio.paused) {
+      audio.play();
+      audioIcon.classList.remove("fa-volume-mute");
+      audioIcon.classList.add("fa-volume-up");
+    } else {
+      audio.pause();
+      audioIcon.classList.remove("fa-volume-up");
+      audioIcon.classList.add("fa-volume-mute");
+    }
+  });
+</script>
+</body>
+</html>
